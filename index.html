@@ -26,7 +26,7 @@
 		<style>
 			body {
 				font-family: "Oranienbaum", serif;
-				background-color: #d0d6b5;
+				background-color: white;
 				color: #333;
 				height: 100vh;
 				display: flex;
@@ -38,6 +38,17 @@
 				text-align: center;
 				padding: 20px;
 			}
+			.nav-tabs {
+				flex-grow: 0;
+				background-color: #d0d6b5;
+			}
+			.tab-content {
+				background-color: #d0d6b5;
+				flex-grow: 1;
+				overflow-y: auto;
+				padding: 20px;
+				border-radius: 10px;
+			}
 			.container {
 				width: 100%;
 				height: 100%;
@@ -47,13 +58,7 @@
 				display: flex;
 				flex-direction: column;
 			}
-			.nav-tabs {
-				flex-grow: 0;
-			}
-			.tab-content {
-				flex-grow: 1;
-				overflow-y: auto;
-			}
+
 			h2 {
 				color: #9dbf9e;
 			}
@@ -93,35 +98,43 @@
 		</ul>
 
 		<div class="tab-content">
-			<div id="home" class="tab-pane fade in active container">
-				<h2>About Me</h2>
-				<p>
-					Hello! I'm Zia, an elementary school teacher dedicated to fostering a
-					supportive, engaging, and inclusive learning environment. I specialize
-					in Social-Emotional Learning (SEL) and trauma-informed art therapy to
-					help students grow academically and emotionally.
-				</p>
+			<div id="home" class="tab-pane fade in active">
+				<div class="container">
+					<h2>About Me</h2>
+					<p>
+						Hello! I'm Zia, an elementary school teacher dedicated to fostering
+						a supportive, engaging, and inclusive learning environment. I
+						specialize in Social-Emotional Learning (SEL) and trauma-informed
+						art therapy to help students grow academically and emotionally.
+					</p>
+				</div>
 			</div>
-			<div id="education" class="tab-pane fade container">
-				<h2>Education</h2>
-				<p>Education</p>
+			<div id="education" class="tab-pane fade">
+				<div class="container">
+					<h2>Education</h2>
+					<p>Education</p>
+				</div>
 			</div>
-			<div id="teaching-philosophy" class="tab-pane fade container">
-				<h2>Teaching Philosophy</h2>
-				<p>
-					My approach to teaching centers on creativity, empathy, and fostering
-					a love for learning. I believe in nurturing each child's unique
-					strengths and helping them develop resilience and confidence through
-					meaningful educational experiences.
-				</p>
+			<div id="teaching-philosophy" class="tab-pane fade">
+				<div class="container">
+					<h2>Teaching Philosophy</h2>
+					<p>
+						My approach to teaching centers on creativity, empathy, and
+						fostering a love for learning. I believe in nurturing each child's
+						unique strengths and helping them develop resilience and confidence
+						through meaningful educational experiences.
+					</p>
+				</div>
 			</div>
-			<div id="experience" class="tab-pane fade container">
-				<h2>Experience</h2>
-				<ul>
-					<li>Elementary Teacher – [Your School Name], [Years]</li>
-					<li>SEL & Art Therapy Workshop Leader – [Organization Name]</li>
-					<li>Student Teaching – [University Placement]</li>
-				</ul>
+			<div id="experience" class="tab-pane fade">
+				<div class="container">
+					<h2>Experience</h2>
+					<ul>
+						<li>Elementary Teacher – [Your School Name], [Years]</li>
+						<li>SEL & Art Therapy Workshop Leader – [Organization Name]</li>
+						<li>Student Teaching – [University Placement]</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
