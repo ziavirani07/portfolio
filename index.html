@@ -58,6 +58,21 @@
 				color: white;
 			}
 		</style>
+		<script>
+			function openCity(evt, pageName) {
+				var i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
+				tablinks = document.getElementsByClassName("tablinks");
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+				document.getElementById(pageName).style.display = "block";
+				evt.currentTarget.className += " active";
+			}
+		</script>
 	</head>
 
 	<body>
@@ -77,47 +92,46 @@
 				>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Education</a>
+				<a class="nav-link" href="#education">Education</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Teaching Philosophy</a>
+				<a class="nav-link" href="#teaching-philosophy">Teaching Philosophy</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Experience</a>
+				<a class="nav-link" href="#experience">Experience</a>
 			</li>
 		</ul>
 
-		<div id="Home - About Me" class="tabcontent">
-			<h2>About Me</h2>
-			<p>
-				Hello! I'm Zia, an elementary school teacher dedicated to fostering a
-				supportive, engaging, and inclusive learning environment. I specialize
-				in Social-Emotional Learning (SEL) and trauma-informed art therapy to
-				help students grow academically and emotionally.
-			</p>
-		</div>
-
-		<div id="Education" class="tabcontent">
-			<h2>Education</h2>
-		</div>
-
-		<div id="Teaching Philosophy" class="tabcontent">
-			<h2>Teaching Philosophy</h2>
-			<p>
-				My approach to teaching centers on creativity, empathy, and fostering a
-				love for learning. I believe in nurturing each child's unique strengths
-				and helping them develop resilience and confidence through meaningful
-				educational experiences.
-			</p>
-		</div>
-
-		<div id="Experience" class="tabcontent">
-			<h2>Experience</h2>
-			<ul>
-				<li>Elementary Teacher – [Your School Name], [Years]</li>
-				<li>SEL & Art Therapy Workshop Leader – [Organization Name]</li>
-				<li>Student Teaching – [University Placement]</li>
-			</ul>
+		<div class="tabcontent">
+			<div id="Home" class="tab-pane fade">
+				<h2>About Me</h2>
+				<p>
+					Hello! I'm Zia, an elementary school teacher dedicated to fostering a
+					supportive, engaging, and inclusive learning environment. I specialize
+					in Social-Emotional Learning (SEL) and trauma-informed art therapy to
+					help students grow academically and emotionally.
+				</p>
+			</div>
+			<div id="Education" class="tabcontent">
+				<h2>Education</h2>
+			</div>
+			<div id="Teaching Philosophy" class="tab-pane fade">
+				<h2>Teaching Philosophy</h2>
+				<p>
+					My approach to teaching centers on creativity, empathy, and fostering
+					a love for learning. I believe in nurturing each child's unique
+					strengths and helping them develop resilience and confidence through
+					meaningful educational experiences.
+				</p>
+			</div>
+			<div id="Experience" class="tab-pane fade">
+				<h2>Experience</h2>
+				<ul>
+					<li>Elementary Teacher – [Your School Name], [Years]</li>
+					<li>SEL & Art Therapy Workshop Leader – [Organization Name]</li>
+					<li>Student Teaching – [University Placement]</li>
+				</ul>
+			</div>
 		</div>
 
 		<footer>
