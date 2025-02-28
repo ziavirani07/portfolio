@@ -47,6 +47,15 @@
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 				border-radius: 10px;
 				margin-top: 20px;
+				display: flex;
+				flex-direction: column;
+			}
+			.nav-tabs {
+				flex-grow: 0;
+			}
+			.tab-content {
+				flex-grow: 1;
+				overflow-y: auto;
 			}
 			h2 {
 				color: #9dbf9e;
@@ -72,7 +81,7 @@
 			<p>ziavirani07@gmail.com | Atlanta, Georgia</p>
 		</header>
 
-		<ul class="nav nav-tabs nav-fill">
+		<ul class="nav nav-tabs nav-justified">
 			<li class="active">
 				<a data-toggle="tab" href="#home">Home - About Me</a>
 			</li>
@@ -87,7 +96,7 @@
 			</li>
 		</ul>
 
-		<div class="tab-content flex-grow-1">
+		<div class="tab-content">
 			<div id="home" class="tab-pane fade in active container">
 				<h2>About Me</h2>
 				<p>
