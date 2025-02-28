@@ -39,7 +39,7 @@
 				padding: 20px;
 			}
 			.container {
-				width: 80%;
+				width: 100%;
 				height: 100%;
 				margin: auto;
 				padding: 20px;
@@ -50,11 +50,6 @@
 			}
 			h2 {
 				color: #9dbf9e;
-			}
-			.contact {
-				text-align: center;
-				margin-top: 20px;
-				font-size: 1.2em;
 			}
 			footer {
 				width: 100%;
@@ -78,30 +73,22 @@
 		</header>
 
 		<ul class="nav nav-tabs">
-			<li class="nav-item">
-				<a
-					data-toggle="tab"
-					class="nav-link active"
-					aria-current="page"
-					href="#"
-					>Home - About Me</a
-				>
+			<li class="active">
+				<a data-toggle="tab" href="#home">Home - About Me</a>
 			</li>
-			<li class="nav-item">
-				<a data-toggle="tab" class="nav-link" href="#education">Education</a>
+			<li>
+				<a data-toggle="tab" href="#education">Education</a>
 			</li>
-			<li class="nav-item">
-				<a data-toggle="tab" class="nav-link" href="#teaching-philosophy"
-					>Teaching Philosophy</a
-				>
+			<li>
+				<a data-toggle="tab" href="#teaching-philosophy">Teaching Philosophy</a>
 			</li>
-			<li class="nav-item">
-				<a data-toggle="tab" class="nav-link" href="#experience">Experience</a>
+			<li>
+				<a data-toggle="tab" href="#experience">Experience</a>
 			</li>
 		</ul>
 
-		<div class="tabcontent">
-			<div id="" class="tab-pane fade">
+		<div class="tab-content">
+			<div id="home" class="tab-pane fade in active container">
 				<h2>About Me</h2>
 				<p>
 					Hello! I'm Zia, an elementary school teacher dedicated to fostering a
@@ -110,11 +97,11 @@
 					help students grow academically and emotionally.
 				</p>
 			</div>
-			<div id="education" class="tab-pane fade">
+			<div id="education" class="tab-pane fade container">
 				<h2>Education</h2>
 				<p>Education</p>
 			</div>
-			<div id="teaching-philosophy" class="tab-pane fade">
+			<div id="teaching-philosophy" class="tab-pane fade container">
 				<h2>Teaching Philosophy</h2>
 				<p>
 					My approach to teaching centers on creativity, empathy, and fostering
@@ -123,7 +110,7 @@
 					meaningful educational experiences.
 				</p>
 			</div>
-			<div id="experience" class="tab-pane fade">
+			<div id="experience" class="tab-pane fade container">
 				<h2>Experience</h2>
 				<ul>
 					<li>Elementary Teacher – [Your School Name], [Years]</li>
