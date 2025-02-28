@@ -22,6 +22,8 @@
 				background-color: #d0d6b5;
 				color: #333;
 				height: 100vh;
+				display: flex;
+				flex-direction: column;
 			}
 			header {
 				background-color: #987284;
@@ -48,8 +50,7 @@
 				font-size: 1.2em;
 			}
 			footer {
-				position: absolute;
-				bottom: 0;
+				width: 100%;
 				text-align: center;
 				padding: 10px;
 				margin-top: 20px;
@@ -69,7 +70,24 @@
 			<p>ziavirani07@gmail.com | Atlanta, Georgia</p>
 		</header>
 
-		<div class="container">
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="#"
+					>Home - About Me</a
+				>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Education</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Teaching Philosophy</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Experience</a>
+			</li>
+		</ul>
+
+		<div id="Home - About Me" class="tabcontent">
 			<h2>About Me</h2>
 			<p>
 				Hello! I'm Zia, an elementary school teacher dedicated to fostering a
@@ -77,7 +95,13 @@
 				in Social-Emotional Learning (SEL) and trauma-informed art therapy to
 				help students grow academically and emotionally.
 			</p>
+		</div>
 
+		<div id="Education" class="tabcontent">
+			<h2>Education</h2>
+		</div>
+
+		<div id="Teaching Philosophy" class="tabcontent">
 			<h2>Teaching Philosophy</h2>
 			<p>
 				My approach to teaching centers on creativity, empathy, and fostering a
@@ -85,7 +109,9 @@
 				and helping them develop resilience and confidence through meaningful
 				educational experiences.
 			</p>
+		</div>
 
+		<div id="Experience" class="tabcontent">
 			<h2>Experience</h2>
 			<ul>
 				<li>Elementary Teacher – [Your School Name], [Years]</li>
