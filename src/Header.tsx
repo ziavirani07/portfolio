@@ -15,8 +15,8 @@ export function Header() {
 				Zia Virani's Teaching Portfolio
 			</Typography>
 			<Typography variant="subtitle1">
-				Elementary School Teacher | Passionate about SEL & Trauma-Informed Art
-				Therapy
+				Elementary School Teacher | Passionate about SEL & Trauma-Informed
+				Education
 			</Typography>
 			<Typography variant="subtitle1">
 				ziavirani07@gmail.com | Atlanta, Georgia
