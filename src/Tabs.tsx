@@ -6,6 +6,10 @@ import {
 	TabProps,
 	Typography,
 	Paper,
+	ListItemText,
+	List,
+	ListItem,
+	Divider,
 } from "@mui/material";
 import { useId, useState } from "react";
 
@@ -143,11 +147,25 @@ export default function AppTabs() {
 				tabsId={tabsId}
 				currentTab={currentTab}
 			>
-				<ul>
-					<li>Elementary Teacher – [Your School Name], [Years]</li>
-					<li>SEL & Art Therapy Workshop Leader – [Organization Name]</li>
-					<li>Student Teaching – [University Placement]</li>
-				</ul>
+				<List>
+					<ListItem>
+						<ListItemText>
+							Elementary Teacher – [Your School Name], [Years]
+						</ListItemText>
+					</ListItem>
+					<Divider />
+					<ListItem>
+						<ListItemText>
+							SEL & Art Therapy Workshop Leader – [Organization Name]
+						</ListItemText>
+					</ListItem>
+					<Divider />
+					<ListItem>
+						<ListItemText>
+							Student Teaching – [University Placement]
+						</ListItemText>
+					</ListItem>
+				</List>
 			</Panel>
 		</Box>
 	);
