@@ -3,7 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import { Header } from "./Header";
 import { Box } from "@mui/material";
-
+import { Footer } from "./Footer";
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
@@ -18,6 +18,7 @@ function App() {
 			>
 				<Header />
 				<AppTabs />
+				<Footer />
 			</Box>
 		</ThemeProvider>
 	);
