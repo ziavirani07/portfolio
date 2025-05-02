@@ -6,12 +6,9 @@ import {
 	TabProps,
 	Typography,
 	Paper,
-	ListItemText,
-	List,
-	ListItem,
-	Divider,
 } from "@mui/material";
 import { useId, useState } from "react";
+import tabs from "./data/tabs";
 
 const getTabId = (index: number, tabsId: string) =>
 	`trigger-${index}-${tabsId}`;
@@ -103,70 +100,24 @@ export default function AppTabs() {
 				component="div"
 				sx={{ "& .MuiTabs-indicator": { display: "none" } }}
 			>
-				<MTab label="Home" index={0} tabsId={tabsId} />
-				<MTab label="Education" index={1} tabsId={tabsId} />
-				<MTab label="Teaching Philosophy" index={2} tabsId={tabsId} />
-				<MTab label="Experience" index={3} tabsId={tabsId} />
+				{tabs.map((tab, index) => (
+					<MTab key={index} label={tab.label} index={index} tabsId={tabsId} />
+				))}
 			</Tabs>
 
-			<Panel index={0} label="About Me" tabsId={tabsId} currentTab={currentTab}>
-				<Typography>
-					Hello! I'm Zia, an elementary school teacher dedicated to fostering a
-					supportive, engaging, and inclusive learning environment. I specialize
-					in Social-Emotional Learning (SEL) and trauma-informed art therapy to
-					help students grow academically and emotionally.
-				</Typography>
-			</Panel>
-
-			<Panel
-				index={1}
-				label="Education"
-				tabsId={tabsId}
-				currentTab={currentTab}
-			>
-				<Typography>Education</Typography>
-			</Panel>
-
-			<Panel
-				index={2}
-				label="Teaching Philosophy"
-				tabsId={tabsId}
-				currentTab={currentTab}
-			>
-				<Typography>
-					My approach to teaching centers on creativity, empathy, and fostering
-					a love for learning. I believe in nurturing each child's unique
-					strengths and helping them develop resilience and confidence through
-					meaningful educational experiences.
-				</Typography>
-			</Panel>
-
-			<Panel
-				index={3}
-				label="Experience"
-				tabsId={tabsId}
-				currentTab={currentTab}
-			>
-				<List>
-					<ListItem>
-						<ListItemText>
-							Elementary Teacher – [Your School Name], [Years]
-						</ListItemText>
-					</ListItem>
-					<Divider />
-					<ListItem>
-						<ListItemText>
-							SEL & Art Therapy Workshop Leader – [Organization Name]
-						</ListItemText>
-					</ListItem>
-					<Divider />
-					<ListItem>
-						<ListItemText>
-							Student Teaching – [University Placement]
-						</ListItemText>
-					</ListItem>
-				</List>
-			</Panel>
+			{tabs.map((tab, index) => (
+				<Panel
+					key={index}
+					index={index}
+					label={tab.title ?? tab.label}
+					tabsId={tabsId}
+					currentTab={currentTab}
+				>
+					<Typography variant="h5">{tab.subtitle}</Typography>
+					<Typography>{tab.description}</Typography>
+					{tab.content}
+				</Panel>
+			))}
 		</Box>
 	);
 }
