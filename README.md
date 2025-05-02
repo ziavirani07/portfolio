@@ -51,16 +51,28 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Editing the website
 
-ChatGPT can probably help you with this if you just copy and paste the file contents, but here's some basic instructions if you want to do it manually or fact-check the ChatGPT answers:
+The data that populates the website is stored in the `src/data` folder. See `src/data/types.ts` file for all the properties you can change.
+
+### Changing the header
+
+1. Go to `src/data/header.ts`
+2. Change the `title` and `subtitle` properties to any strings.
+3. If you want to add a new line to the subtitle, you can do so by adding a `\n` in the string.
+4. If you want to remove the header entirely, just make the object empty.
+   `const header: Header = {}`
+
+### Changing the footer
+
+1. Go to `src/data/footer.ts`
+2. Change the `title` and `subtitle` properties to any strings.
+3. If you want to add a new line to the subtitle, you can do so by adding a `\n` in the string.
+4. If you want to remove the footer entirely, just make the object empty.
+   `const footer: Footer = {}`
 
 ### Adding a new tab
 
-1.  Go to `src/Tabs.tsx`
-2.  Add a new Tab: Inside the `AppTabs` component, you'll see `<Tabs>` with a list of `<MTab>` components inside. Copy and paste one of the `<MTab>` components right next to the existing ones and update the label and index (add 1 to the previous index).
-    `<MTab label="New Tab" index={last index + 1} tabsId={tabsId} />`
-
-3.  Add a new Panel: Inside the `AppTabs` component, you'll see a list of `<Panel>` components. Copy and paste one of the `<Panel>` components right next to the existing ones and update the label and index (match the index of the MTab). You can put whatever you want inside the panel, but for text you want to use the `<Typography>` component to get the correct styling.
-    `<Panel index={index you used in the MTab} label="New Panel" tabsId={tabsId} currentTab={currentTab}> <Typography>Whatever you want</Typography> </Panel>`
+1.  Go to `src/data/tabs.tsx`
+2.  Add a new object to the `tabs` array by following the format of the other objects. The `label` is the text that will appear on the actual tab. The `title` is optional if you want to change the header of the panel to something other than the label; if you leave it blank, the label will be used. The `description` is text below the header. The `content` is anything you want to put inside the panel that isn't text.
 
 ### Updating the theme
 

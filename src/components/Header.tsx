@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
+import header from "../data/header";
 
 export function Header() {
+	if (!header.title && !header.subtitle) return null;
 	return (
 		<Box
 			sx={{
@@ -12,14 +14,10 @@ export function Header() {
 			}}
 		>
 			<Typography variant="h2" color="primary">
-				Zia Virani's Teaching Portfolio
+				{header.title}
 			</Typography>
-			<Typography variant="subtitle1">
-				Elementary School Teacher | Passionate about SEL & Trauma-Informed
-				Education
-			</Typography>
-			<Typography variant="subtitle1">
-				ziavirani07@gmail.com | Atlanta, Georgia
+			<Typography variant="subtitle1" sx={{ whiteSpace: "pre-line" }}>
+				{header.subtitle}
 			</Typography>
 		</Box>
 	);
