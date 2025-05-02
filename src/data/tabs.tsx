@@ -6,8 +6,11 @@ import {
 	Divider,
 	Typography,
 	Box,
+	CardMedia,
+	Card,
+	CardContent,
 } from "@mui/material";
-import { Tab, Experience } from "./types";
+import { Tab, Experience, LessonPlan } from "./types";
 
 const experiences: Experience[] = [
 	{
@@ -18,6 +21,14 @@ const experiences: Experience[] = [
 	},
 	{
 		label: "Student Teaching",
+	},
+];
+
+const lessonPlans: LessonPlan[] = [
+	{
+		label: "Lesson Plan 1",
+		description: "Description of Lesson Plan 1",
+		url: "https://docs.google.com/document/d/e/2PACX-1vQQtSfvZCg9tmFaNiIinOJeiYMj3VAb8OOHNBioJEkgP9Vhdzdnnl0-3lFFjW8gGbfda_t7KuYGkeqP/pub?embedded=true",
 	},
 ];
 
@@ -55,6 +66,32 @@ const tabs: Tab[] = [
 					</Box>
 				))}
 			</List>
+		),
+	},
+	{
+		label: "Lesson Plans",
+		content: (
+			<Box sx={{ display: "flex", flexDirection: "column", gap: 10 }}>
+				{lessonPlans.map((item) => (
+					<Card key={item.label}>
+						<CardMedia
+							component="iframe"
+							title={item.label}
+							src={item.url}
+							width="100%"
+							height="300px"
+						/>
+						<CardContent>
+							<Typography gutterBottom variant="h5" component="div">
+								{item.label}
+							</Typography>
+							<Typography variant="body2" sx={{ color: "text.secondary" }}>
+								{item.description}
+							</Typography>
+						</CardContent>
+					</Card>
+				))}
+			</Box>
 		),
 	},
 ];
