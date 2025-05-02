@@ -3,30 +3,17 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Trigger deployment on push to main branch
+      - main # Deploy when changes are pushed to the main branch
+  workflow_dispatch: # Allow for manual triggering from the GitHub UI
 
 jobs:
   deploy:
-    if: "!contains(github.event.head_commit.message, '[skip ci]')" # Skip deployment if [skip ci] is in the commit message
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-
     steps:
-      # Checkout code
-      - name: Checkout repository
+      # Checkout the repository to get the latest code
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      # Install dependencies
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      # Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
 
       # Build the project
       - name: Build the project
@@ -34,8 +21,7 @@ jobs:
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: github/pages-build-deployment@v2
         with:
-          branch: gh-pages # Deploy to the gh-pages branch
-          folder: build # The output directory of the build
-          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          folder: build
