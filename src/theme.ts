@@ -8,6 +8,7 @@ const theme = createTheme({
 		secondary: {
 			main: "#9dbf9e", // darker green
 			light: "#d0d6b5", // lighter green
+			contrastText: "#ffffff",
 		},
 		info: {
 			main: "#987284", // purple

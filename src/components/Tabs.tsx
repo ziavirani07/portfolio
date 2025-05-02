@@ -8,7 +8,7 @@ import {
 	Paper,
 } from "@mui/material";
 import { useId, useState } from "react";
-import tabs from "./data/tabs";
+import tabs from "../data/tabs";
 
 const getTabId = (index: number, tabsId: string) =>
 	`trigger-${index}-${tabsId}`;

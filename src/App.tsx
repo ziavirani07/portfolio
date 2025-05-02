@@ -1,9 +1,10 @@
-import AppTabs from "./Tabs";
+import AppTabs from "./components/Tabs";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
-import { Header } from "./Header";
+import { Header } from "./components/Header";
 import { Box } from "@mui/material";
-import { Footer } from "./Footer";
+import { Footer } from "./components/Footer";
+
 function App() {
 	return (
 		<ThemeProvider theme={theme}>

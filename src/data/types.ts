@@ -17,10 +17,10 @@ interface Experience {
 	years?: string;
 }
 
-interface LessonPlan {
+interface Document {
 	label: string;
 	description?: string;
 	url?: string;
 }
 
-export type { Header, Tab, Experience, LessonPlan };
+export type { Header, Tab, Experience, Document };

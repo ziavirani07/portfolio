@@ -9,8 +9,10 @@ import {
 	CardMedia,
 	Card,
 	CardContent,
+	Stack,
+	CardActionArea,
 } from "@mui/material";
-import { Tab, Experience, LessonPlan } from "./types";
+import { Tab, Experience, Document } from "./types";
 
 const experiences: Experience[] = [
 	{
@@ -24,11 +26,21 @@ const experiences: Experience[] = [
 	},
 ];
 
-const lessonPlans: LessonPlan[] = [
+const documents: Document[] = [
 	{
-		label: "Lesson Plan 1",
-		description: "Description of Lesson Plan 1",
+		label: "The Impact of Trauma on Refugee and Immigrant Students",
+		description: "Paper written for my Master's Thesis",
 		url: "https://docs.google.com/document/d/e/2PACX-1vQQtSfvZCg9tmFaNiIinOJeiYMj3VAb8OOHNBioJEkgP9Vhdzdnnl0-3lFFjW8gGbfda_t7KuYGkeqP/pub?embedded=true",
+	},
+	{
+		label: "Curriculum Design",
+		description: "Curriculum design for my Master's Thesis",
+		url: "https://docs.google.com/document/d/e/2PACX-1vTJ4eaUNLldZfLnEYuHIT_1XWYgJTkzvqpLGjAIWXVZyF7r80OawdHmBLAnbzYQE9tmIGDIms67ONeX/pub?embedded=true",
+	},
+	{
+		label: "Tier 2 Intervention Guide",
+		description: "For Immigrant and Refugee Students",
+		url: "https://drive.google.com/file/d/1M38edhsEstZYFV_T8N_Vp49bI6s2Wh9o/preview",
 	},
 ];
 
@@ -69,11 +81,19 @@ const tabs: Tab[] = [
 		),
 	},
 	{
-		label: "Lesson Plans",
+		label: "Documents",
 		content: (
-			<Box sx={{ display: "flex", flexDirection: "column", gap: 10 }}>
-				{lessonPlans.map((item) => (
-					<Card key={item.label}>
+			<Stack
+				useFlexGap
+				direction="row"
+				spacing={5}
+				sx={{ flexWrap: "wrap", flexGrow: 1 }}
+			>
+				{documents.map((item) => (
+					<Card
+						key={item.label}
+						sx={{ width: { sm: "100%", md: "48%" }, flexGrow: 1 }}
+					>
 						<CardMedia
 							component="iframe"
 							title={item.label}
@@ -81,17 +101,19 @@ const tabs: Tab[] = [
 							width="100%"
 							height="300px"
 						/>
-						<CardContent>
-							<Typography gutterBottom variant="h5" component="div">
-								{item.label}
-							</Typography>
-							<Typography variant="body2" sx={{ color: "text.secondary" }}>
-								{item.description}
-							</Typography>
-						</CardContent>
+						<CardActionArea component="a" href={item.url} target="_blank">
+							<CardContent>
+								<Typography gutterBottom variant="h5" component="div">
+									{item.label}
+								</Typography>
+								<Typography variant="body2" sx={{ color: "text.secondary" }}>
+									{item.description}
+								</Typography>
+							</CardContent>
+						</CardActionArea>
 					</Card>
 				))}
-			</Box>
+			</Stack>
 		),
 	},
 ];

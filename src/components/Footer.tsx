@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import footer from "./data/footer";
+import footer from "../data/footer";
 
 export function Footer() {
 	if (!footer.title && !footer.subtitle) return null;
