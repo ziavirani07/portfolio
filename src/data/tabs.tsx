@@ -149,7 +149,9 @@ const tabs: Tab[] = [
 										<Typography variant="body2">
 											<i>{item.location}</i> ({item.years})
 										</Typography>
-										<Typography variant="body2">{item.description}</Typography>
+										<Typography variant="body2" color="text.primary">
+											{item.description}
+										</Typography>
 									</>
 								}
 							/>
