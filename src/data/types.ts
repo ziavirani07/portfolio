@@ -14,7 +14,16 @@ interface Tab {
 interface Experience {
 	label: string;
 	description?: string;
+	location?: string;
 	years?: string;
+}
+
+interface Education {
+	label: string;
+	subtitle?: string;
+	location?: string;
+	years?: string;
+	description?: string;
 }
 
 interface Document {
@@ -23,4 +32,4 @@ interface Document {
 	url?: string;
 }
 
-export type { Header, Tab, Experience, Document };
+export type { Header, Tab, Experience, Document, Education };
