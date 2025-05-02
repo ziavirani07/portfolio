@@ -7,6 +7,7 @@ on:
 
 jobs:
   deploy:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')" # Skip deployment if [skip ci] is in the commit message
     runs-on: ubuntu-latest
 
     steps:
@@ -14,22 +15,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16" # Use the appropriate version of Node.js
-
       # Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: yarn install --frozen-lockfile
 
-      # Run build
-      - name: Build the app
-        run: npm run build
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Build the project
+      - name: Build the project
+        run: yarn build
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # Deploy to the gh-pages branch
+          folder: build # The output directory of the build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is automatically provided by GitHub
