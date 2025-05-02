@@ -11,19 +11,58 @@ import {
 	CardContent,
 	Stack,
 	CardActionArea,
+	ListItemIcon,
 } from "@mui/material";
-import { Tab, Experience, Document } from "./types";
+import { Tab, Experience, Document, Education } from "./types";
+import CircleIcon from "@mui/icons-material/Circle";
+
+const education: Education[] = [
+	{
+		label: "Harvard University",
+		subtitle: "Master of Education in Human Development",
+		location: "Cambridge, MA",
+		years: "2024 2024",
+		description:
+			"GPA: 4.0\nConcentration in Arts & Learning\nAga Khan International Scholarship, Program Recipient, Aga Khan Foundation, 2024",
+	},
+	{
+		label: "University of Texas at Austin",
+		subtitle:
+			"Bachelor of Science in Early Childhood - 6th Grade ESL Generalist",
+		location: "Austin, Texas",
+		years: "2020 - 2024",
+		description:
+			"GPA: 3.9\nCollege of Education Scholar 2022-2024\nTeachers of Tomorrow facilitator\nCollege of Education Honors Scholarship 2023 Recipient",
+	},
+];
 
 const experiences: Experience[] = [
 	{
-		label: "Elementary Teacher",
+		label:
+			"Intern at the Ecological Approaches to Social-Emotional Learning (EASEL) Lab",
+		description:
+			"In this position, I conducted research on trauma-informed and SEL-based interventions for elementary-aged students. I also analyzed qualitative and quantitative data on the effectiveness of SEL programs in K-5 settings, and helped develop Harvard University's 'Brain Games' to implement in Boston Public Schools",
+		location: "Harvard University",
+		years: "2024",
 	},
 	{
-		label: "SEL & Art Therapy Workshop Leader",
+		label: "Student Intern",
+		description:
+			"I developed and implemented lesson plans that met state standards and enhanced students' critical thinking and analytical skills. I assessed student learning through formative and summative assessments and adapted instruction to meet diverse academic and social-emotional needs. I created a positive and inclusive classroom environment using serve and return interactions to foster genuine student engagement. I differentiated instruction for English language learners and students with lEPs to ensure equitable access to learning.",
+		location: "Hart Elementary - Austin Independent School District",
+		years: "2022 - 2024",
 	},
-	{
-		label: "Student Teaching",
-	},
+];
+
+const skills = [
+	"Classroom Management",
+	"Technology Integration",
+	"Active Listening",
+	"Inclusive Teaching",
+	"Flexibility and Adaptability",
+	"Painting",
+	"Reading",
+	"Interior Design",
 ];
 
 const documents: Document[] = [
@@ -48,18 +87,53 @@ const tabs: Tab[] = [
 	{
 		label: "Home",
 		title: "About Me",
+		subtitle: "Professional Summary & Skills",
 		description:
-			"Hello! I'm Zia, an elementary school teacher dedicated to fostering a supportive, engaging, and inclusive learning environment. I specialize in Social-Emotional Learning (SEL) and trauma-informed art therapy to help students grow academically and emotionally.",
+			"I am a dedicated elementary teacher specializing in trauma-informed practices, social-emotional learning (SEL), and arts integration. I'm skilled in fostering inclusive, engaging classrooms through serve-and-return interactions, simple interactions, and differentiated instruction.",
+		content: (
+			<List>
+				{skills.map((item, index) => (
+					<Box key={item}>
+						<ListItem disablePadding divider={index < skills.length - 1}>
+							<ListItemIcon>
+								<CircleIcon sx={{ fontSize: "0.5rem" }} color="secondary" />
+							</ListItemIcon>
+							<ListItemText primary={item} />
+						</ListItem>
+					</Box>
+				))}
+			</List>
+		),
 	},
 	{
 		label: "Education",
-		description:
-			"I hold a Bachelor's degree in Elementary Education and a Master's degree in Art Therapy. I am also a certified SEL and trauma-informed art therapist.",
-	},
-	{
-		label: "Teaching Philosophy",
-		description:
-			"My approach to teaching centers on creativity, empathy, and fostering a love for learning. I believe in nurturing each child's unique strengths and helping them develop resilience and confidence through meaningful educational experiences.",
+		content: (
+			<List>
+				{education.map((item, index) => (
+					<Box key={item.label}>
+						<ListItem divider={index < education.length - 1}>
+							<ListItemText
+								primary={item.label}
+								secondary={
+									<>
+										<Typography variant="body2">
+											<i>{item.subtitle}</i>
+										</Typography>
+										<Typography
+											variant="body2"
+											color="text.primary"
+											sx={{ whiteSpace: "pre-line" }}
+										>
+											{item.description}
+										</Typography>
+									</>
+								}
+							/>
+						</ListItem>
+					</Box>
+				))}
+			</List>
+		),
 	},
 	{
 		label: "Experience",
@@ -67,12 +141,18 @@ const tabs: Tab[] = [
 			<List>
 				{experiences.map((item, index) => (
 					<Box key={item.label}>
-						<ListItem
-							secondaryAction={
-								<Typography variant="body2">{item.years}</Typography>
-							}
-						>
-							<ListItemText primary={item.label} secondary={item.description} />
+						<ListItem>
+							<ListItemText
+								primary={item.label}
+								secondary={
+									<>
+										<Typography variant="body2">
+											<i>{item.location}</i> ({item.years})
+										</Typography>
+										<Typography variant="body2">{item.description}</Typography>
+									</>
+								}
+							/>
 						</ListItem>
 						{index < experiences.length - 1 && <Divider />}
 					</Box>
