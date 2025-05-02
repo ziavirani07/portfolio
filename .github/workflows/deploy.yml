@@ -10,6 +10,9 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip ci]')" # Skip deployment if [skip ci] is in the commit message
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       # Checkout code
       - name: Checkout repository
@@ -35,5 +38,4 @@ jobs:
         with:
           branch: gh-pages # Deploy to the gh-pages branch
           folder: build # The output directory of the build
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is automatically provided by GitHub
+          token: ${{ secrets.GITHUB_TOKEN }}
